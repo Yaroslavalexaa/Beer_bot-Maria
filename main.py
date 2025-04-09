@@ -13,7 +13,7 @@ class Order (StatesGroup):
 paused_users = set()
 
 
-MANAGER_ID = 6832378503
+MANAGER_ID = id
 
 async def main ():
     bot = Bot(token='your token', default=DefaultBotProperties(parse_mode='HTML'))
