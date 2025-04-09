@@ -16,7 +16,7 @@ paused_users = set()
 MANAGER_ID = 6832378503
 
 async def main ():
-    bot = Bot(token='7359658093:AAEEoVObBeNv9l82XMjWSQ4VZr3XaSkMsFo', default=DefaultBotProperties(parse_mode='HTML'))
+    bot = Bot(token='your token', default=DefaultBotProperties(parse_mode='HTML'))
     dp = Dispatcher()
     dp.include_router(router)
     router.bot = bot
