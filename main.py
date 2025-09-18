@@ -13,7 +13,7 @@ class Order (StatesGroup):
 paused_users = set()
 
 
-MANAGER_ID = id
+manager_id = id
 
 async def main ():
     bot = Bot(token='your token', default=DefaultBotProperties(parse_mode='HTML'))
@@ -35,7 +35,7 @@ async def send_to_manager(message: Message, state: FSMContext):
     data = await state.get_data()
     user_username = message.from_user.username if message.from_user.username else "Без username"
 
-    await bot.send_message(chat_id=MANAGER_ID,
+    await bot.send_message(chat_id=manager_id,
         text=f"⚠️ Клиент {message.from_user.full_name} ({user_username}) запросил общение с менеджером.\n\n"
                            f'Вопрос клиента: {data["ask"]}')
 
@@ -51,7 +51,7 @@ async def noyes ( message: Message, state:FSMContext):
     await message.answer(
         'Для отправки запроса прайса, напишите, пожалуйста, ваше имя и удобный способ связи (телефон, имейл, вотсап).\n\n '
         '*предоставляя данные, вы соглашаетесь с политикой конфиденциальности\n'
-        " https://northbeerhouse.ru/politika_konfidetcialnosti")
+        " link")
 
 @router.message(Order.price)
 async def send_price_request(message: Message, state: FSMContext):
@@ -77,3 +77,4 @@ if __name__ == '__main__':
         asyncio.run (main())
     except KeyboardInterrupt:
          print ('Бот выключен')
+
