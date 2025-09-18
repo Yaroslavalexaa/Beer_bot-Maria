@@ -21,7 +21,7 @@ async def dia (message:Message):
     markup = InlineKeyboardMarkup(inline_keyboard=[
         [InlineKeyboardButton(
             text='Популярные сорта и стоимость',
-            url='https://northbeerhouse.ru/samye-populyarnye-sorta',
+            url='link',
         )]
     ])
     await message.answer("Перейдите по ссылке. ", reply_markup = markup)
@@ -43,6 +43,7 @@ async def delivery (message: Message):
         "При регулярных поставках предусмотрены <b>специальные условия</b>.",
         parse_mode="HTML"
     )
+
 
 
 
